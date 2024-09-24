@@ -1,0 +1,8 @@
+{
+    "ignore": [
+      "venv/**",
+      "node_modules/**",
+      "*.txt"
+    ]
+  }
+  

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/css/result.css">
+    <!-- Add any necessary styles or scripts here -->
+</head>
+<body>
+    <h1>Prediction Result</h1>
+
+    <% if (prediction === 0) { %>
+        <h2 style="color: red;">The pateint has compensated hypothyroid.</h2>
+        <br><br>
+        <p>It is a state where the thyroid function is suboptimal but compensated by increased thyroid-stimulating hormone (TSH).</p><br><br>
+        
+        <p style="font-size: 30px;">
+            Have you been experiencing the following symptoms?
+            <br>
+            <br>
+            <div>
+            <ul>
+                <li>Fatigue and weakness.</li>
+                <li>Weight gain.</li>
+                <li>Dry skin and hair.</li>
+                <li>Cold intolerance.</li>
+                <li>Constipation.</li>
+                <li>Depression.</li>
+            </ul>
+        </div></p>
+         <p style="font-size: 30px;">   When to See a Doctor
+            <br>
+            <br>
+            <ul>
+                <li>If experiencing persistent symptoms.</li>
+                <li>If there is a family history of thyroid disorders.</li>
+                <li>Routine check-ups, especially for individuals at higher risk.
+                </li>
+            </ul>
+            
+        </p>
+    <% } else if (prediction === 1) { %>
+        
+        <h2 style="color: red;">The pateint has hyperthyroid.</h2>
+<p style="font-size: 30px;">
+    Have you bee experiencing the following symptoms?
+    <br>
+    <div></div>
+    <ul>
+        <li>            Weight loss.        </li>
+        <li>Rapid or irregular heartbeat.</li>
+        <li>Anxiety or nervousness.</li>
+        <li>Irritability.</li>
+        <li>Increased sensitivity to heat.</li>
+        <li>Muscle weakness.</li>
+    </ul></p>
+ <p style="font-size: 30px;">   When to See a Doctor
+    <br>
+    <ul>
+        <li>If experiencing persistent symptoms.</li>
+        <li>If there is a family history of thyroid disorders.</li>
+        <li>Routine check-ups, especially for individuals at higher risk.
+        </li>
+    </ul>
+    
+</p>
+    <% } else if (prediction === 2) { %>
+        <h2 style="color: green;">The patient is healthy without thyroid.</h2>
+        
+        <p >Based on the analysis, the model did not identify any signs of a thyroid disorder. <br>While this is positive, remember that the model provides predictions based on the input data, and it's essential to consult with a healthcare professional for a comprehensive health assessment. <br>Regular check-ups and a healthy lifestyle contribute to overall well-being.<br> If you have any specific health concerns or experience changes in your health, we recommend seeking advice from a medical professional. <br>Take care!</p>
+        <br>
+        <br>
+        <% } else if (prediction === 3) { %>
+        <h2 style="color: red;">The pateint has primary hypothyroid.</h2>
+        <br><br>
+        <p>It is a condition where the thyroid gland does not produce enough thyroid hormones.</p><br><br>
+        <p style="font-size: 30px;">
+            Have you been experiencing the following symptoms?
+            <br>
+            <ul>
+                <li>Fatigue and weakness.</li>
+                <li>Weight gain.</li>
+                <li>Dry skin and hair.</li>
+                <li>Cold intolerance.</li>
+                <li>Constipation..</li>
+                <li>Depression.</li>
+            </ul></p>
+         <p style="font-size: 30px;">   When to See a Doctor
+            <br>
+            <ul>
+                <li>If experiencing persistent symptoms.</li>
+                <li>If there is a family history of thyroid disorders.</li>
+                <li>Routine check-ups, especially for individuals at higher risk.
+                </li>
+            </ul>
+            
+        </p>
+    <% } else if (prediction === 4) { %>
+        <h2 style="color: red;">The pateint has secondary hypothyroid.</h2>
+        <br><br>
+        <p>It is a condition where the thyroid gland does not receive sufficient stimulation from the pituitary gland, leading to decreased thyroid hormone production.</p><br><br>
+        <p style="font-size: 30px;">
+            Have you been experiencing the following symptoms?
+            <br>
+            <ul>
+                <li>Fatigue and weakness.</li>
+                <li>Weight gain.</li>
+                <li>Dry skin and hair.</li>
+                <li>Cold intolerance.</li>
+                <li>Constipation..</li>
+                <li>Depression.</li>
+            </ul></p>
+         <p style="font-size: 30px;">   When to See a Doctor
+            <br>
+            <ul>
+                <li>If experiencing persistent symptoms.</li>
+                <li>If there is a family history of thyroid disorders.</li>
+                <li>Routine check-ups, especially for individuals at higher risk.
+                </li>
+            </ul>
+            
+        </p>
+    <% } else { %>
+        <p>Error in prediction.</p>
+    <% } %>
+    <br>
+    <br>
+    <p>
+        Seek medical care&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+        <a href="/maps" class="find-hospitals-button">Find Hospitals</a>
+    </p>
+    <br>
+    <br>
+    <p>
+        Know more about the disease &nbsp;&nbsp;&nbsp; 
+        <a href="/symptoms" class="find-hospitals-button">Symptoms</a>
+    </p>
+    <!-- Add any additional content or formatting as needed -->
+    <br><br>
+    <a href="/">Go back to home</a>
+</body>
+</html>

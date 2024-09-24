@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyrolead</title>
+    <link rel="stylesheet" type="text/css" href="swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="icon" type="image/png" href="/img/favicon.jpeg">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css" rel="stylesheet">
+   
+</head>
+<body>
+    <div class="navbar">
+        <img src="/img/thyrolog.png" class="logo">
+        <ul>
+            <!-- <li><a href="/">Home</a></li> -->
+            <li><form action="/predict" type="submit">
+                <a href="/predict">Predict</a></form>
+            </li>
+            <li><a href="/symptoms">Symptoms</a></li>
+            <li><a href="/about">About us</a></li>
+            <li><a href="/history">History</a></li>
+            <li style="color: white;"> <button" onclick="togglePopup()">CONTACT</button></li>
+            
+           
+            <% if (user) { %>
+                
+                <li><a href="/logout">Logout</a></li>
+            <% } else { %>
+                
+                <li><a href="/login">Login</a></li>
+            <% } %>
+        </ul>
+    </div>
+    <div id="popup" class="popup-container" style="border-radius: 5rem;">
+        <!-- Popup content -->
+        <div class="popup-content" style="border-radius: 20px;color: rgb(0, 0, 0);background-color: #a2c5de">
+            <span class="close-btn" onclick="togglePopup()">&times;</span>
+            <br><br>
+            <!-- <img src="/img/browse1.webp"><br><br> -->
+            <h2 class="contactus">Contact Us</h2>
+            <div class="content">
+                <pre>
+                    
+                    <p>mobile  : 1234567890</p>
+                    <p>email   : thyrolead@gmail.com</p>
+                    <p>address : Keshav Memorial Engineering College, 
+                   Parvathapur, Peerzadiguda, Hyderabad,
+                   Telangana 500039</p>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle the visibility of the popup
+        function togglePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+    </script>
+
+    <!-- <section  style="background-color: #1D212B;;">
+        <div class="hero-container">
+            <div class="column-left">
+                <h1 style="color: #9daaf2; ;">THYROID </h1>
+                <h1 style="color: #ff6a3d;"> DISEASE </h1>
+                <h1 style="color: #9daaf2;">  DETECTION</h1>
+                <p style="color: #f4db7d; " >
+                Get free thyroid prediction using blood test results.
+                Better safe than sorry.
+                </p>
+                
+            </div>
+            <div class="column-right">
+                <img src="/img/browse1.webp" class="hero-image">
+
+            </div>
+        </div>
+    </section> -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="column-left">
+                <h1 >THYROID DISEASE DETECTION</h1>
+                <p>
+                    Get free thyroid prediction using blood test results. Better safe than sorry.
+                </p>
+                <button><a href="/about" style="text-decoration: none;color: black;">Know more</a></button>
+            </div>
+            <div class="column-right">
+                <video autoplay loop  muted playsinline width="500">
+                    <source src="/img/home.mp4" type="video/mp4" >
+                </video>
+                <!-- <iframe class="hero-image" src="https://giphy.com/embed/oa5JQF60DmL06chK0s" width="343" height="480" frameBorder="0" class="giphy-embed" allowFullScreen controls="false" allow="autoplay; fullscreen"></iframe><p><a href="https://giphy.com/stickers/romantic-doctor-teacher-kim-dr-oa5JQF60DmL06chK0s"></a></p> -->
+                <!-- <img src="/img/browse1.webp" class="hero-image" style="max-width: 100%;">  -->
+            </div>
+        </div>
+    </section>
+                
+    
+    <section>
+        <div class=" vidclass">
+            <video autoplay loop  muted playsinline class="back-video">
+                <source src="/img/homepgvid.mp4" type="video/mp4" >
+            </video>
+            <div class="content-container">
+            <h1 style="text-align: center;">We help people figure out thyroid health and find the right care.</h1><br><br>
+            <form action="/predict" type="submit">
+                <button >Get Started
+                </button></form>
+            </div>
+        </div>
+    </section>
+   
+    <br><br>
+    <h1 style="text-align: center; color: white; font-size: 50px;">Here's how we help..</h1>
+    <section>
+        
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card1 swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay sld1"></span>
+
+                            <div class="card-image">
+                                <!-- <img src="/public/img/browse1.webp" class="card-img"> -->
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Step 1</h2>
+                            <p class="description">We revolutionize user experience by providing a highly personalized, private environment 
+                            </p>
+                            <!-- <button class="button1">View more</button> -->
+                        </div>
+                    </div>
+                    <div class="card1 swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay sld2"></span>
+
+                            <div class="card-image">
+                                <!-- <img src="/public/img/browse1.webp" class="card-img"> -->
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Step 2</h2>
+                            <p class="description">We take the blood test results and details of user to predict their thyroid condition using our AI model.</p>
+                            <!-- <button class="button1">View more</button> -->
+                        </div>
+                    </div>
+                    <div class="card1 swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay sld3"></span>
+
+                            <div class="card-image">
+                                <!-- <img src="/img/browse1.webp" class="card-img">  -->
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Step 3</h2>
+                            <p class="description">We show the symptoms and spread awareness regarding each type of thyroid</p>
+                            <!-- <button class="button1">View more</button> -->
+                        </div>
+                    </div>
+                    <div class="card1 swiper-slide">
+                        <div class="image-content ">
+                            <span class="overlay sld4"></span>
+
+                            <div class="card-image ">
+                                <!-- <img src="/public/img/browse1.webp" class="card-img"> -->
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">Step 4</h2>
+                            <p class="description">We provide nearby hospital details tailored to your address, ensuring personalized healthcare accessibility.
+                            <!-- <button class="button1">View more</button> -->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div> 
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-scrollbar"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+    </section>
+    <div class="butt"><button type="button" class="button2"><span></span>
+        <a href="/maps" style="text-decoration: none;">
+            <img style="width: 20px;" src="/img/loc.jpeg">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+
+        Find nearby hospitals</button></a></div>
+    <br><br>
+    <footer>
+        <div class="footer-container">
+            <!--comoany-box-->
+            <div class="footer-company-box">
+                <!--logo-->
+                <h1>ThyroLead</h1>
+                <!--details-->
+                <p>Free thyroid prediction using machine learning.</p>
+                <!--social-box-->
+                
+            </div>
+            <!--link-box*-->
+            
+            <!--link-box*-->
+            <!-- <div class="footer-link-box">
+                <strong>External Link's</strong>
+                <ul>
+                    <li><a href="#">Our Product's</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div> -->
+            <!--link-box*-->
+            <div class="footer-link-box">
+                <strong>Developers</strong>
+                <ul>
+                    <li>Somi</li>
+                    <li>Mounika</li>
+                    <li>Manaswini</li>
+                    <li>Nandini</li>
+                    <li>Akhila</li>
+                    <li>Susanna</li>
+                </ul>
+            </div>
+            
+   
+        </div>
+  
+        <!--bottom-->
+        <div class="footer-bottom">
+            
+            <span class="copyright">&#169; Copyright 2024 -  THYROLEAD</span>
+        </div>
+    </footer>
+    <!-- <script src="/js/swiper-bundle.min.js"></script> -->
+<script src="/js/home.js"></script>
+</body>
+<!-- <script src="{{ url_for('static', filename='swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='home2.js') }}"></script> -->
+
+</html>

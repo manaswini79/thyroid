@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    
+    <!-- <h2>Log in</h2>
+    <form action="/login" method ="post">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit">
+    </form>
+    <a href="/signup">Make a new account</a> -->
+
+
+ 
+<div class="form-box login">
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="text" name="username"  required>
+            <label>username</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" name="password"  required>
+            <label>password</label>
+        </div>
+        <!-- <div class="remember-forgot">
+            <label><input type="checkbox">Remember me</label>
+            <a href="#">Forgot password?</a>
+        </div> -->
+        <button type="submit" class="btn">login</button>
+        <div class="login-register">
+            <p>Don't have an account?
+                <a href="/signup" class="register-link">Register</a></p>
+        </div>
+    </form>
+</div>
+</body>
+</html>

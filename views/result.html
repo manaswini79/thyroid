@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyroid Prediction Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+<body>
+    <!-- <nav>
+        <div  class="logo">THYROLEAD (▀̿Ĺ̯▀̿ ̿)</div>
+        <a href="/">
+            <img src="{{ url_for('static', filename='thyroleadlogo.jpg') }}" style="height: 45px;">
+        </a>
+        
+        
+        <div  class="nav-items">
+            <a href="/symptoms">Symptoms</a></form>
+            <a href="/">About</a>
+            <a href="/">Contact</a>
+        </div>
+
+    </nav><br><br><br><br> -->
+    <section align="center">
+    <h1>Thyroid Prediction Result</h1>
+    <!-- <p>The predicted result is: {{ prediction }}</p> -->
+    <p>{{message}}</p>
+    <a href="/">Go back</a>
+    </section>  
+    <div align="center"><img src="{{ url_for('static', filename='Your paragraph text (1).png') }}" style="height:500px;">
+    </div>
+    <br><br><br>
+    <form action="/symptoms" type="submit" align="center">
+        <button>there's nothing wrong in knowing more...
+        </button></form>
+    <br><br><br>
+</body> 
+    
+</html>

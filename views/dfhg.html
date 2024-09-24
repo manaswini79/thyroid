@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Prediction</title>
+      <link rel="stylesheet" type="text/css" href="/css/dfhg.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <link rel="icon" type="image/png" href="/img/favicon.jpeg">
+   </head>
+   <body>
+      <header>
+         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+         <h1 align="center" style=" font-size: 70px; background-color: #f5f7fb;">Thyroid Tango</h1>
+         <h1 align="center" style=" font-size: 40px; background-color: #f5f7fb;font-family: 'Comic Sans MS', cursive;">Let's Dance with Your Glands!</h1>
+         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </header>
+      
+      <section>
+      <!-- <h1 class="info">start your test ryhtrhrt trhjtfrj rtfhyj</h1> -->
+      <div class="container">
+         <h1 align="center">Thyroid check.</h1>
+         <!-- <header>Signup Form</header> -->
+         <div class="form-outer">
+            <form action="/predict" method="POST">
+               
+              
+               <div class="page slide-page">
+                  <label for="username">Username:</label>
+                  <input type="text" id="username" name="username" required>
+                  <!-- <div class="field">
+                     <div class="label">
+                        <label for="username">Username:</label>
+                     </div>
+                     <input type="text" id="username" name="username" required>
+                  </div> -->
+                  <div class="field">
+                     <div class="label">
+                        Age:
+                     </div>
+                     <input  name="feature_{{ 1 }}"  type="number" max="100" required value="0">
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Sex:
+                     </div>
+                     <select name="feature_{{ 2 }}"  required>
+                        <option value=1>female</option>
+                        <option value=2>male</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <button class="firstNext next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="field">
+                     <div class="label">
+                        Is the patient on thyroxine medication:
+                     </div>
+                     <select name="feature_{{ 3 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Was the patient on thyroxine meds:
+                     </div>
+                     <select name="feature_{{ 4 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Is the patient on anti thyroid meds:
+                     </div>
+                     <select name="feature_{{ 5 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field btns1" >
+                     <button class="prev-1 prev">Previous</button>
+                     <button class="next-1 next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="field">
+                     <div class="label">
+                        Is the patient sick:
+                     </div>
+                     <select name="feature_{{ 6 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Is the patient pregnant:
+                     </div>
+                     <select name="feature_{{ 7 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-2 prev">Previous</button>
+                     <button class="next-2 next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="field">
+                     <div class="label">
+                        Did the patient have thyroid surgery:
+                     </div>
+                     <select name="feature_{{ 8 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <div class="label"><span class="tooltip">
+
+                     </span>
+                        Did patient have Iodine 131 treatment:
+                     </div>
+                     <select name="feature_{{ 9 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-3 prev">Previous</button>
+                     <button class="next-3 next">next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="field">
+                     <div class="label">
+                        were you diagonised with hypothyroid:
+                     </div>
+                     <select  name="feature_{{ 10 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        were you diagonised with hyperthyroid:
+                     </div>
+                     <select  name="feature_{{ 11 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-4 prev">Previous</button>
+                     <button class="next-4 next">next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="field">
+                     <div class="label">
+                        Do you have abnormal lithium levels:
+                     </div>
+                     <select name="feature_{{ 12 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Does the patient have goitre:
+                     </div>
+                     <select name="feature_{{ 13 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-5 prev">Previous</button>
+                     <button class="next-5 next">next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="field">
+                     <div class="label">
+                        Does the patient have tumor:
+                     </div>
+                     <select name="feature_{{ 14 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Do you have hypopitutarism:
+                     </div>
+                     <select name="feature_{{ 15 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Is the patient psychologically unstable:
+                     </div>
+                     <select name="feature_{{ 16 }}"  required>
+                        <option value=0>false</option>
+                        <option value=1>true</option>  
+                    </select>
+                  </div>
+                  <div class="field btns6">
+                     <button class="prev-6 prev">Previous</button>
+                     <button class="next-6 next">next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="field">
+                     <div class="label">
+                        TSH (Thyroid stimulating hormone):
+                     </div>
+                     <input name="feature_{{ 17 }}"  type="number" step="any" placeholder="0.4 - 4.0 mU/L" required>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        T3 (Triiodothyronine):
+                     </div>
+                     <input name="feature_{{ 18 }}"  type="number" step="any" placeholder="80 - 200 ng/DL" required>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        TT4 (Total Thyroxine):
+                        </div>
+                     <input name="feature_{{ 19 }}"  type="number" step="any" placeholder="4.5 - 12.5 μU/dL" required>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        T4U (Thyroxine uptake): 
+                     </div>
+                     <input name="feature_{{ 20 }}" type="number" step="any" placeholder="0.9 - 1.1" required>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        FTI (Free thyroxine index):
+                     </div>
+                     <input  name="feature_{{ 21 }}" type="number" step="any" placeholder="5 - 11" required>
+                  </div>
+                  <div class="field btns7">
+                     <button class="prev-7 prev">Previous</button>
+                     <button class="submit">Submit</button>
+                  </div>
+               </div>
+               
+            </form>
+         </div>
+      </div>
+   </section>
+   <footer>
+      <div class="footer-container">
+          <!--comoany-box-->
+          <div class="footer-company-box">
+              <!--logo-->
+              <h1>ThyroLead</h1>
+              <!--details-->
+              <p>Free thyroid prediction using machine learning.</p>
+              <!--social-box-->
+              <!-- <div class="footer-social">
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              </div> -->
+          </div>
+          <!--link-box*-->
+          <div class="footer-link-box">
+              <strong>Main Link's</strong>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Portfolio</a></li>
+              </ul>
+          </div>
+          <!--link-box*-->
+          <div class="footer-link-box">
+              <strong>External Link's</strong>
+              <ul>
+                  <li><a href="#">Our Product's</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Disclaimer</a></li>
+                  <li><a href="#">Terms and Conditions</a></li>
+              </ul>
+          </div>
+          <!--link-box*-->
+          <div class="footer-link-box">
+              <strong>Developers</strong>
+              <ul>
+                  <li>Somi</li>
+                  <li>Mounika</li>
+                  <li>Manaswini</li>
+                  <li>Nandini</li>
+                  <li>Akhila</li>
+                  <li>Susanna</li>
+              </ul>
+          </div>
+          
+ 
+      </div>
+
+      <!--bottom-->
+      <div class="footer-bottom">
+          <span class="footer-owner"></span>
+          <span class="copyright">&#169; Copyright 2024 - THYROLEAD</span>
+      </div>
+  </footer>
+      <script src="/js/dfhg.js"></script>
+   </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Hospitals Nearby</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            background-color: #1a2238;
+        }
+
+        
+        .hero-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 95vh;
+    padding: 3rem calc((100vw - 1300px)/2);
+}
+.column-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: black;
+    padding: 0rem 2rem;
+}
+
+.column-left h1{
+    margin-bottom: 1rem;
+    font-size:3rem;
+    color: #FF6A3D;
+
+}
+
+.column-left p{
+    color: white;
+    margin-right: 0;
+    margin-bottom: 2rem;
+    font-size:1.5rem;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+     
+}
+
+button{
+    background-color: #000000;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    /* border: 2px solid rgb(104, 187, 255); */
+    color: #ffffff;
+    background: white(255, 255, 255);
+    cursor: pointer;
+    width: 410px;
+    /* border-radius: 50px; */
+}
+
+button:hover{
+    background: rgb(145, 145, 145);
+    color: rgb(0, 0, 0);
+}
+.comment{
+    width: 400px;
+    height: 50px;
+    font-size: 17px;
+}
+
+#map{
+    width: 101%;
+    height: 90%;
+
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 200px;
+    cursor: pointer;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin:0 20px ;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+    </style>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/overpass-leaflet@0.2.0/dist/overpass-leaflet.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="/img/thyrolog.png" class="logo">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><form action="/predict" type="submit">
+                <a href="/predict">Predict</a></form>
+            </li>
+            <li><a href="/symptoms">Symptoms</a></li>
+            <li><a href="/about">About us</a></li>
+            <li style="color: white;"> <button" onclick="togglePopup()">CONTACT</button></li>
+            <li><a href="#">logout</a></li>
+        </ul>
+    </div>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="column-left">
+                <h1>Find help near you...</h1><br><br><br>
+                <!-- <label for="address">Enter your address:</label> -->
+        <input type="text" id="address" placeholder="                         Enter a valid address" class="comment"><br>
+        <button onclick="findHospitals()">Find Hospitals</button>
+        <p>
+            Refresh the page to search again
+        </p>
+            </div>
+            <div class="column-right">
+                <!-- <img src="{{ url_for('static', filename='hand-drawn-flat-design-thyroid-illustration_23-2149300117.jpg') }}" class="hero-image"> -->
+                <div id="map"></div>
+
+            </div>
+        </div>
+    </section>
+    <!-- <div id="container">
+        <h1>Find Hospitals Nearby</h1>
+        <label for="address">Enter your address:</label>
+        <input type="text" id="address" placeholder="E.g., 123 Main St, City">
+        <button onclick="findHospitals()">Find Hospitals</button>
+        <div id="map"></div>
+    </div> -->
+
+    <script>
+        function findHospitals() {
+            const address = document.getElementById('address').value;
+            if (!address.trim()) {
+                alert('Please enter a valid address.');
+                return;
+            }
+
+            // Use a geocoding service to convert the address to coordinates
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        const lat = data[0].lat;
+                        const lon = data[0].lon;
+
+                        // Create a Leaflet map
+                        const map = L.map('map').setView([lat, lon], 14);
+
+                        // Add a tile layer (you can choose a different provider)
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '© OpenStreetMap contributors'
+                        }).addTo(map);
+
+                        // Add a marker for the user's location
+                        L.marker([lat, lon]).addTo(map)
+                            .bindPopup('Your Location')
+                            .openPopup();
+
+                        // Add a circle to represent the search area without specifying color
+                        L.circle([lat, lon], { radius: 90000 }).addTo(map);
+
+                        // Execute Overpass Turbo query
+                        const overpassQuery = `[out:json];
+                                  node(around:50000,${lat},${lon})[amenity=hospital];
+                                  out;`;
+                        const overpassLayer = L.overpassLayer(overpassQuery, {
+                            minZoom: 10, // adjust the minimum zoom level as needed
+                            markerIcon: L.icon({
+                                iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
+                                iconSize: [100, 100],
+                                iconAnchor: [15, 50],
+                                popupAnchor: [1, -34],
+                                shadowSize: [50, 50]
+                            })
+                        });
+
+                        // Add Overpass Turbo layer to the map
+                        overpassLayer.addTo(map);
+                    } else {
+                        alert('Location not found. Please enter a valid address.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching geocoding data:', error);
+                });
+        }
+    </script>
+</body>
+</html>

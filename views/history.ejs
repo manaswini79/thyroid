@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    h2 {
+      color: #555;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    strong {
+      color: #033870;
+    }
+
+    p {
+      color: #036d1b;
+    }
+  </style>
+</head>
+<body>
+  <h1>History Page</h1>
+  <h2>User: <%= user.username %></h2>
+
+  <ul>
+    <% user.predictions.forEach(prediction => { %>
+      <li>
+        <!-- <strong>Prediction:</strong> <%= prediction.prediction %><br> -->
+        <strong>Message:</strong> <%= getPredictionMessage(prediction.prediction) %><br>
+        
+        <strong>Timestamp:</strong> <%= prediction.timestamp %>
+        <!-- <strong>Message:</strong> <%= prediction.message %><br> -->
+      </li>
+    <% }); %>
+  </ul>
+
+  <% function getPredictionMessage(prediction) { %>
+    <% if (prediction === 2) { %>
+      <p>Patient is healthy without thyroid.</p>
+    <% } else if (prediction === 1) { %>
+      <p>Patient has hyperthyroid.</p>
+    <% } else if (prediction === 0) { %>
+      <p>Patient has compensated hypothyroid.</p>
+    <% } else if (prediction === 3) { %>
+      <p>Patient has primary hypothyroid.</p>
+    <% } else if (prediction === 4) { %>
+      <p>Patient has secondary hypothyroid.</p>
+    <% } else { %>
+      <p>Error in prediction.</p>
+    <% } %>
+  <% } %>
+</body>
+</html>
