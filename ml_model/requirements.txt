@@ -1,0 +1,7 @@
+Flask==2.3.3              # Flask 3.x requires Python >=3.11, so using 2.3.3 for better compatibility
+numpy==1.26.4             # Latest stable NumPy (no 2.3.0 exists)
+joblib==1.3.2             # Compatible with sklearn 1.3+
+scikit-learn==1.3.2       # 1.7.0 doesn't exist; latest is 1.3.2
+pandas==2.2.2             # 2.3.0 may require Python >=3.11
+seaborn==0.13.2           # Valid and available
+matplotlib==3.8.4         # 3.10.3 doesn't exist; latest is 3.8.4

@@ -1,0 +1,16 @@
+**/node_modules/
+**/package-lock.json
+
+**/venv/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+**/.env
+
+**/*.log
+frontend/build/
+
+
+.DS_Store

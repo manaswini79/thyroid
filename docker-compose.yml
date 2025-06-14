@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BACKEND_URL=/predict
+
+  backend:
+    build: ./backend
+    ports:
+      - "5001:5000"
+    depends_on:
+      - mongo
+      - ml_model
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/thyroid
+      - FLASK_API_URL=http://ml_model:5000/predict
+
+  ml_model:
+    build: ./ml_model
+    ports:
+      - "5002:5000"
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
