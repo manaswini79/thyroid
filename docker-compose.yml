@@ -4,16 +4,16 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "3000:80"
+      - "80:80"  # React will run on port 80 for Render
     depends_on:
       - backend
     environment:
-      - REACT_APP_BACKEND_URL=/predict
+      - REACT_APP_BACKEND_URL=/predict  # if backend is reverse-proxied
 
   backend:
     build: ./backend
-    ports:
-      - "5001:5000"
+    expose:
+      - "5000"  # only internal access
     depends_on:
       - mongo
       - ml_model
@@ -23,15 +23,10 @@ services:
 
   ml_model:
     build: ./ml_model
-    ports:
-      - "5002:5000"
+    expose:
+      - "5000"  # only internal access
 
   mongo:
     image: mongo
-    ports:
-      - "27017:27017"
     volumes:
       - mongo-data:/data/db
-
-volumes:
-  mongo-data:
