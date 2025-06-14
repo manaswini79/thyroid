@@ -1,13 +1,11 @@
-version: "1"
-
 services:
   - type: web
     name: thyrolead
     env: docker
-    repo: https://github.com/manaswini79/thyroid
-    branch: main
     plan: free
     region: singapore
-    dockerContext: .
+    repo: https://github.com/manaswini79/thyroid
+    branch: main
     dockerComposeFile: docker-compose.yml
+    dockerContext: .
     autoDeploy: true
