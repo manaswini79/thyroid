@@ -1,21 +1,21 @@
 
-# 🧠 ThyroLead: Thyroid Disease Detection Platform
+# ThyroLead: Thyroid Disease Detection Platform
 
 **ThyroLead** is an end-to-end full-stack web application designed to help users detect the likelihood of thyroid disease using machine learning. It integrates a React frontend, a Node.js/Express backend, a Python-based Flask API for prediction, and MongoDB for storage—all orchestrated using Docker.
 
 ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 - **Frontend**: React.js  
 - **Backend**: Node.js with Express  
-- **ML Model**: Flask API (Python, scikit-learn, XGBoost, etc.)  
+- **ML Model**: Flask API (Python, Random Forest Model)  
 - **Database**: MongoDB  
 - **Containerization**: Docker & Docker Compose  
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 thyroid/
@@ -30,7 +30,7 @@ thyroid/
 
 ---
 
-## 🌐 Application Flow
+## Application Flow
 
 1. Users fill out a form on the **React frontend** with medical parameters like TSH, FTI and other blood test results.
 2. The **Express backend** receives this data and forwards it to the ML API.
@@ -40,7 +40,7 @@ thyroid/
 ---
 ### Steps to run the application:
 
-### 🔄 Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/manaswini79/thyroid.git
@@ -48,7 +48,7 @@ cd thyroid
 ```
 ---
 
-### ▶️ Run the Application with Docker
+###  Run the Application with Docker
 
 ```bash
 docker-compose up --build
@@ -61,22 +61,21 @@ docker-compose up --build
 
 ---
 
-## 🧠 Model Info
+## Model Info
 
 The ML model is trained on a publicly available thyroid dataset using algorithms like Random Forest and XGBoost. It returns `hypothyroid` or `normal` predictions based on input parameters like TSH, T3, T4, etc.
 
 ---
 
-## 🛠️ Customization
+## To retrain or modify the ML model:
 
-To retrain or modify the ML model:
 - Update model training code and re-export `model.pkl`
 - Place it in the `ml_model/` directory
 - Restart Docker services
 
 ---
 
-## 🙋‍♀️ Maintained by
+## Maintained by
 
-**Manaswini S**  
+**Manaswini K**  
 [GitHub](https://github.com/manaswini79)
