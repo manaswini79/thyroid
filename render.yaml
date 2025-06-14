@@ -6,6 +6,6 @@ services:
     region: singapore
     repo: https://github.com/manaswini79/thyroid
     branch: main
-    dockerComposeFile: docker-compose.yml
     dockerContext: .
+    dockerComposeFilePath: docker-compose.yml
     autoDeploy: true
