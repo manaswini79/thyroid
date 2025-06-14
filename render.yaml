@@ -1,11 +1,13 @@
+version: "1"
+
 services:
   - type: web
     name: thyrolead
     env: docker
-    plan: free
-    region: singapore
     repo: https://github.com/manaswini79/thyroid
     branch: main
+    plan: free
+    region: singapore
     dockerContext: .
-    dockerfilePath: ""  # blank because you're using docker-compose.yml
+    dockerComposeFile: docker-compose.yml
     autoDeploy: true
