@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: thyrolead
+    env: docker
+    plan: free
+    region: singapore
+    repo: https://github.com/manaswini79/thyroid
+    branch: main
+    dockerfilePath: ./Dockerfile # Render will use docker-compose below, this line is ignored
+    dockerContext: .
+    buildCommand: "" # Not needed for Docker
+    startCommand: "docker-compose up"
+    autoDeploy: true
